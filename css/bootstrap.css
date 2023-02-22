@@ -7777,10 +7777,12 @@ button.bg-dark:focus {
 }
 
 .fixed-top {
+  background: #EBF5FB;
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
+  width: 100%
   z-index: 1030;
 }
 
