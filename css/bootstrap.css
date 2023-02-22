@@ -557,9 +557,9 @@ pre code {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
-  margin-top: 35px;
-  margin-right: auto;
-  margin-left: auto;
+  margin-top: 45px;
+  margin-right: 45px;
+  margin-left: 45px;
 }
 
 @media (min-width: 576px) {
