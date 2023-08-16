@@ -1440,7 +1440,4 @@
     width: 340px;
     height: 80px;
   }
- 
- .obfuscate { unicode-bidi: bidi-override; direction: rtl; 
-  }
 }
