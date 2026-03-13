@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thapanee Punnavirat — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --lavender: #c8c3e3;
+  --lavender-light: #e8e5f5;
+  --lavender-bg: #edeaf6;
+  --periwinkle: #6b64a8;
+  --blue-deep: #3a3d8c;
+  --coral: #e86b5a;
+  --coral-light: #f5a596;
+  --pink: #f0b8c8;
+  --pink-light: #f8dce6;
+  --mint: #a8d8c8;
+  --mint-light: #d4efe6;
+  --yellow: #f5d060;
+  --yellow-light: #fdf0c4;
+  --peach: #f8c9a0;
+  --cream: #faf9fc;
+  --white: #fff;
+  --text: #2a2a4a;
+  --text-mid: #5a5a7a;
+  --text-light: #8a8aa0;
+  --border: #e0ddf0;
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', -apple-system, sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:60px; }
+body { font-family:var(--sans); color:var(--text); background:var(--lavender-bg); font-size:15px; line-height:1.7; -webkit-font-smoothing:antialiased; }
+
+/* ── NAV ── */
+nav {
+  position:fixed; top:0; width:100%; z-index:1000;
+  height:56px; padding:0 40px;
+  display:flex; align-items:center; justify-content:space-between;
+  background:var(--white);
+  border-bottom:1px solid var(--border);
+}
+.nav-brand { font-family:var(--serif); font-size:1.15rem; color:var(--periwinkle); text-decoration:none; font-style:italic; }
+.nav-center { display:flex; gap:28px; list-style:none; }
+.nav-center a { text-decoration:none; color:var(--text-mid); font-size:0.78rem; font-weight:500; transition:color 0.2s; }
+.nav-center a:hover { color:var(--periwinkle); }
+.hamburger { display:none; flex-direction:column; gap:4px; cursor:pointer; background:none; border:none; }
+.hamburger span { width:20px; height:1.5px; background:var(--text); }
+.mobile-menu { display:none; position:fixed; top:56px; left:0; right:0; background:var(--white); padding:16px 32px; border-bottom:1px solid var(--border); z-index:999; }
+.mobile-menu.open { display:block; }
+.mobile-menu a { display:block; padding:10px 0; color:var(--text-mid); text-decoration:none; font-size:0.85rem; font-weight:500; border-bottom:1px solid var(--border); }
+
+/* ── CONTAINERS ── */
+.page-wrap { max-width:1060px; margin:0 auto; padding:0 32px; }
+section { padding:80px 0; }
+
+/* ── HERO ── */
+#home { padding-top:56px; background:var(--cream); }
+.hero-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:0; min-height:calc(100vh - 56px);
+}
+.hero-left {
+  position:relative; overflow:hidden;
+  padding:40px 20px 40px 32px;
+}
+.hero-photo-full {
+  width:100%; height:100%; min-height:460px;
+  border-radius:8px; overflow:hidden;
+}
+.hero-photo-full img {
+  width:100%; height:100%; object-fit:cover; display:block;
+}
+.hero-scroll-arrow {
+  position:absolute; bottom:32px; left:50%;
+  transform:translateX(-50%);
+  font-family:var(--serif); font-size:2rem;
+  color:var(--periwinkle); opacity:0.6;
+  animation:bobArrow 2s ease-in-out infinite;
+}
+@keyframes bobArrow { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+
+.hero-right {
+  display:flex; flex-direction:column; justify-content:center;
+  padding:60px 40px 60px 32px;
+}
+.hero-heading {
+  font-family:var(--serif); font-size:clamp(2rem,4vw,2.8rem);
+  color:var(--text); font-weight:400; line-height:1.15;
+  margin-bottom:20px;
+}
+.hero-heading em { color:var(--periwinkle); font-style:italic; }
+.hero-desc { font-size:0.9rem; color:var(--text-mid); line-height:1.85; max-width:380px; margin-bottom:28px; }
+.hero-meta { display:flex; gap:16px; margin-bottom:28px; flex-wrap:wrap; }
+.hero-meta-tag {
+  font-size:0.68rem; font-weight:600; letter-spacing:0.06em;
+  text-transform:uppercase; padding:6px 16px;
+  border-radius:100px; border:1.5px solid var(--border);
+  color:var(--text-mid);
+}
+
+.btn { display:inline-block; padding:13px 28px; font-family:var(--sans); font-size:0.8rem; font-weight:600; text-decoration:none; border-radius:6px; transition:all 0.3s var(--ease); border:none; cursor:pointer; }
+.btn-coral { background:var(--coral); color:var(--white); }
+.btn-coral:hover { background:#d45a4a; transform:translateY(-2px); box-shadow:0 6px 20px rgba(232,107,90,0.25); }
+.btn-outline { background:transparent; border:2px solid var(--periwinkle); color:var(--periwinkle); }
+.btn-outline:hover { background:var(--periwinkle); color:var(--white); }
+
+/* ── ABOUT EDITORIAL ── */
+.about-section { background:var(--cream); }
+.about-grid {
+  display:grid; grid-template-columns:1fr 1.2fr;
+  gap:48px; align-items:start;
+}
+.about-images {
+  display:grid; grid-template-columns:1fr 1fr;
+  grid-template-rows:1fr 1fr; gap:10px;
+  position:relative;
+}
+.about-img-block {
+  border-radius:8px; overflow:hidden; min-height:160px;
+}
+.about-img-1 { background:var(--lavender); grid-row:span 2; }
+.about-img-1 img { width:100%; height:100%; object-fit:cover; display:block; }
+.about-img-2 { background:var(--peach); }
+.about-img-3 { background:var(--mint-light); }
+
+.about-text-side {}
+.about-label { font-size:0.68rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--coral); margin-bottom:8px; }
+.about-heading { font-family:var(--serif); font-size:1.8rem; color:var(--text); margin-bottom:20px; line-height:1.2; }
+.about-heading em { color:var(--periwinkle); font-style:italic; }
+.about-text-side p { font-size:0.88rem; color:var(--text-mid); line-height:1.9; margin-bottom:14px; }
+
+/* ── CREDS ── */
+.creds-wrap { margin-top:32px; }
+.cred-item { display:flex; gap:12px; padding:12px 0; border-bottom:1px solid var(--border); align-items:baseline; }
+.cred-num { font-family:var(--serif); font-size:0.82rem; color:var(--periwinkle); min-width:36px; }
+.cred-name { font-weight:600; font-size:0.85rem; color:var(--text); }
+.cred-sub { font-size:0.72rem; color:var(--text-light); }
+.cred-link { font-size:0.7rem; color:var(--coral); text-decoration:none; font-weight:600; }
+.cred-link:hover { text-decoration:underline; }
+
+.lang-row { display:flex; gap:28px; margin-top:24px; flex-wrap:wrap; }
+.lang-item { text-align:center; }
+.lang-flag { font-size:1.4rem; margin-bottom:2px; }
+.lang-n { font-size:0.75rem; font-weight:600; color:var(--text); }
+.lang-l { font-size:0.65rem; color:var(--text-light); }
+
+/* ── SKILLS ── */
+.skills-section { background:var(--white); }
+.skill-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.skill-card {
+  padding:28px 24px; border-radius:10px;
+  transition:transform 0.3s var(--ease);
+}
+.skill-card:hover { transform:translateY(-4px); }
+.skill-card:nth-child(6n+1) { background:var(--lavender-light); }
+.skill-card:nth-child(6n+2) { background:var(--pink-light); }
+.skill-card:nth-child(6n+3) { background:var(--mint-light); }
+.skill-card:nth-child(6n+4) { background:var(--yellow-light); }
+.skill-card:nth-child(6n+5) { background:#e0e8f8; }
+.skill-card:nth-child(6n+6) { background:var(--lavender-light); }
+
+.sk-num { font-family:var(--serif); font-size:0.78rem; color:var(--periwinkle); margin-bottom:8px; }
+.sk-title { font-family:var(--serif); font-size:1rem; color:var(--text); margin-bottom:8px; line-height:1.2; }
+.sk-desc { font-size:0.76rem; color:var(--text-mid); line-height:1.7; }
+
+/* ── PROJECTS ── */
+.projects-section { background:var(--cream); }
+.section-top { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:36px; flex-wrap:wrap; gap:16px; }
+.section-top-left {}
+.st-label { font-size:0.68rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--coral); margin-bottom:4px; }
+.st-heading { font-family:var(--serif); font-size:clamp(1.6rem,3vw,2.2rem); color:var(--text); }
+.st-heading em { color:var(--periwinkle); font-style:italic; }
+
+.filter-row { display:flex; gap:8px; }
+.filter-btn {
+  padding:8px 20px; border-radius:100px;
+  border:1.5px solid var(--border); background:var(--white);
+  font-family:var(--sans); font-size:0.72rem; font-weight:600;
+  color:var(--text-mid); cursor:pointer; transition:all 0.2s;
+}
+.filter-btn.active, .filter-btn:hover { background:var(--periwinkle); color:var(--white); border-color:var(--periwinkle); }
+
+.proj-editorial {
+  display:grid; grid-template-columns:1fr 1fr 1fr;
+  gap:14px;
+}
+.proj-card {
+  background:var(--white); border-radius:10px;
+  border:1.5px solid var(--border);
+  overflow:hidden;
+  transition:all 0.3s var(--ease);
+}
+.proj-card:hover { transform:translateY(-4px); box-shadow:0 8px 28px rgba(0,0,0,0.04); border-color:var(--lavender); }
+.proj-thumb { width:100%; height:160px; overflow:hidden; }
+.proj-thumb-color-1 { background:linear-gradient(135deg, var(--pink-light), var(--lavender-light)); }
+.proj-thumb-color-2 { background:linear-gradient(135deg, var(--lavender-light), #d0e0f8); }
+.proj-thumb-color-3 { background:linear-gradient(135deg, var(--mint-light), var(--yellow-light)); }
+.proj-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+.proj-body { padding:24px; }
+.proj-cat { font-size:0.65rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--coral); margin-bottom:6px; }
+.proj-title { font-family:var(--serif); font-size:1.05rem; color:var(--text); margin-bottom:8px; line-height:1.2; }
+.proj-desc { font-size:0.78rem; color:var(--text-mid); line-height:1.7; margin-bottom:14px; }
+.proj-tags { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:12px; }
+.proj-tags span { font-size:0.64rem; padding:3px 10px; border-radius:100px; border:1px solid var(--border); color:var(--text-light); }
+.proj-read { font-size:0.72rem; font-weight:600; color:var(--coral); text-decoration:none; }
+.proj-read:hover { text-decoration:underline; }
+
+/* ── VENTURES ── */
+.ventures-section { background:var(--white); }
+.vent-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.vent-card { border-radius:10px; padding:36px 30px; transition:transform 0.3s var(--ease); }
+.vent-card:hover { transform:translateY(-4px); }
+.vent-1 { background:var(--lavender-light); }
+.vent-2 { background:var(--blue-deep); }
+.vent-emoji { font-size:2rem; margin-bottom:14px; }
+.vent-name { font-family:var(--serif); font-size:1.4rem; margin-bottom:4px; }
+.vent-1 .vent-name { color:var(--text); }
+.vent-2 .vent-name { color:var(--white); }
+.vent-sub { font-size:0.68rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:14px; }
+.vent-1 .vent-sub { color:var(--periwinkle); }
+.vent-2 .vent-sub { color:var(--lavender); }
+.vent-desc { font-size:0.85rem; line-height:1.8; margin-bottom:18px; }
+.vent-1 .vent-desc { color:var(--text-mid); }
+.vent-2 .vent-desc { color:rgba(255,255,255,0.65); }
+.vent-tags { display:flex; flex-wrap:wrap; gap:6px; }
+.vent-tags span { font-size:0.65rem; padding:4px 12px; border-radius:100px; }
+.vent-1 .vent-tags span { border:1.5px solid var(--border); color:var(--text-mid); }
+.vent-2 .vent-tags span { border:1.5px solid rgba(255,255,255,0.15); color:rgba(255,255,255,0.45); }
+
+/* ── CV ── */
+.cv-section { background:var(--cream); }
+.cv-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; }
+.cv-col-title { font-family:var(--serif); font-size:1rem; color:var(--text); padding-bottom:10px; border-bottom:3px solid var(--periwinkle); margin-bottom:24px; }
+.cv-item { margin-bottom:22px; }
+.cv-date { font-size:0.7rem; font-weight:600; color:var(--coral); }
+.cv-role { font-family:var(--serif); font-size:0.95rem; color:var(--text); margin:3px 0 2px; }
+.cv-place { font-size:0.78rem; color:var(--text-light); margin-bottom:4px; }
+.cv-desc-text { font-size:0.78rem; color:var(--text-mid); line-height:1.7; }
+.cv-dl { text-align:center; margin-top:36px; }
+
+/* ── CONTACT ── */
+.contact-card {
+  background:var(--lavender-light); border-radius:14px;
+  margin:0 32px 48px; padding:60px 40px; text-align:center;
+}
+.contact-h { font-family:var(--serif); font-size:clamp(1.6rem,3vw,2.2rem); color:var(--text); margin-bottom:10px; }
+.contact-h em { color:var(--periwinkle); font-style:italic; }
+.contact-sub { font-size:0.88rem; color:var(--text-mid); margin-bottom:24px; max-width:400px; margin-left:auto; margin-right:auto; }
+.contact-btns { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; }
+.contact-btn {
+  display:inline-flex; align-items:center; gap:6px;
+  padding:10px 22px; border:1.5px solid var(--border);
+  border-radius:100px; font-size:0.78rem; font-weight:600;
+  color:var(--text); text-decoration:none; transition:all 0.2s;
+  background:var(--white);
+}
+.contact-btn:hover { background:var(--periwinkle); color:var(--white); border-color:var(--periwinkle); }
+
+/* ── FOOTER ── */
+footer {
+  background:var(--blue-deep); padding:24px 40px;
+  display:flex; align-items:center; justify-content:space-between;
+  flex-wrap:wrap; gap:12px;
+}
+.ft-brand { font-family:var(--serif); font-size:0.85rem; color:var(--lavender-light); font-style:italic; }
+.ft-links { display:flex; gap:18px; }
+.ft-links a { color:rgba(200,195,227,0.5); text-decoration:none; font-size:0.7rem; transition:color 0.2s; }
+.ft-links a:hover { color:var(--lavender-light); }
+.ft-copy { font-size:0.68rem; color:rgba(200,195,227,0.3); }
+
+/* ── FLOATING TABS ── */
+.floating-tabs {
+  position:fixed; bottom:22px; left:50%;
+  transform:translateX(-50%) translateY(80px);
+  z-index:1001; display:flex; gap:2px; padding:5px;
+  background:var(--white);
+  border:1.5px solid var(--lavender);
+  border-radius:100px;
+  box-shadow:0 8px 32px rgba(58,61,140,0.1);
+  opacity:0; transition:all 0.5s var(--ease);
+}
+.floating-tabs.visible { transform:translateX(-50%) translateY(0); opacity:1; }
+.floating-tabs a {
+  display:flex; align-items:center; gap:5px;
+  padding:8px 14px; text-decoration:none;
+  font-size:0.68rem; font-weight:600; border-radius:100px;
+  color:var(--text-light); transition:all 0.25s; white-space:nowrap;
+}
+.floating-tabs a:hover { color:var(--periwinkle); background:var(--lavender-light); }
+.floating-tabs a.active { color:var(--white); background:var(--periwinkle); }
+.floating-tabs a svg { width:13px; height:13px; flex-shrink:0; }
+@media (max-width:700px) {
+  .floating-tabs { padding:4px; }
+  .floating-tabs a { padding:7px 9px; }
+  .floating-tabs a .tab-label { display:none; }
+  .floating-tabs a.active .tab-label { display:inline; }
+}
+
+.reveal { opacity:0; transform:translateY(16px); transition:all 0.6s var(--ease); }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+@media (max-width:900px) {
+  nav { padding:0 20px; }
+  .nav-center { display:none; }
+  .hamburger { display:flex; }
+  .page-wrap { padding:0 20px; }
+  .hero-grid { grid-template-columns:1fr; }
+  .hero-left { padding:28px 20px; }
+  .hero-photo-full { min-height:300px; }
+  .hero-right { padding:40px 20px; }
+  .about-grid { grid-template-columns:1fr; }
+  .about-images { display:none; }
+  .skill-grid { grid-template-columns:1fr 1fr; }
+  .proj-editorial { grid-template-columns:1fr; }
+  .vent-grid { grid-template-columns:1fr; }
+  .cv-grid { grid-template-columns:1fr; gap:32px; }
+  .contact-card { margin:0 16px 36px; padding:48px 24px; }
+  footer { padding:24px 20px; }
+}
+@media (max-width:520px) {
+  .skill-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#home" class="nav-brand">thapanee</a>
+  <ul class="nav-center">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#ventures">Ventures</a></li>
+    <li><a href="https://drive.google.com/file/d/1iPIZWHcOEsrKkzA5OCjB3iHhlgJuhD2N/view?usp=sharing" target="_blank">CV</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#skills" onclick="closeMenu()">Skills</a>
+  <a href="#projects" onclick="closeMenu()">Projects</a>
+  <a href="#ventures" onclick="closeMenu()">Ventures</a>
+  <a href="https://drive.google.com/file/d/1iPIZWHcOEsrKkzA5OCjB3iHhlgJuhD2N/view?usp=sharing" target="_blank" onclick="closeMenu()">CV</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section id="home" style="padding:0;">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hero-photo-full">
+        <img src="images/nanniephoto.png" alt="Thapanee Punnavirat" />
+      </div>
+      <div class="hero-scroll-arrow">↓</div>
+    </div>
+    <div class="hero-right">
+      <h1 class="hero-heading"><em>NLP tools</em> & intelligent systems for a <em>data-driven</em> world.</h1>
+      <p class="hero-desc">I enjoy working with data and believe in AI and Machine Learning applications under responsible practices. Building the future from Ireland.</p>
+      <div class="hero-meta">
+        <span class="hero-meta-tag">NLP</span>
+        <span class="hero-meta-tag">AI Safety</span>
+        <span class="hero-meta-tag">ML</span>
+        <span class="hero-meta-tag">Data Science</span>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="#projects" class="btn btn-coral">View My Work →</a>
+        <a href="https://drive.google.com/file/d/1iPIZWHcOEsrKkzA5OCjB3iHhlgJuhD2N/view?usp=sharing" target="_blank" class="btn btn-outline">Download CV</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABOUT ══ -->
+<section id="about" class="about-section">
+  <div class="page-wrap">
+    <div class="about-grid reveal">
+      <div class="about-images">
+        <div class="about-img-block about-img-1"><img src="images/nanniephoto.png" alt="Thapanee" /></div>
+        <div class="about-img-block about-img-2"></div>
+        <div class="about-img-block about-img-3"></div>
+      </div>
+      <div class="about-text-side">
+        <div class="about-label">About Me</div>
+        <div class="about-heading"><em>Passion</em> for language, intelligence & impact.</div>
+        <p>I hold a Bachelor's degree in Business Administration and a Master's degree in Digital Innovation. For over three years, I worked for a multinational IT company in Ireland on a Natural Language Processing project improving AI's understanding of users' requests.</p>
+        <p>Since then, I've pursued intensive training in data science and machine learning. Alongside my work, I'm building early-stage startup ventures — driven by a belief that technology should create real, everyday impact.</p>
+
+        <div class="creds-wrap">
+          <div class="cred-item"><div class="cred-num">/01</div><div><div class="cred-name">ML Research School 2023</div><div class="cred-sub">Aug 2023 · <a class="cred-link" href="https://drive.google.com/file/d/1wRARhUfrukc87YeUlW9gQrD3sXMf8M1O/view?usp=sharing" target="_blank">View ↗</a></div></div></div>
+          <div class="cred-item"><div class="cred-num">/02</div><div><div class="cred-name">Diploma in ML & AI</div><div class="cred-sub">Distinction · City Colleges, Dublin · <a class="cred-link" href="https://app.diplomasafe.com/en-US/diploma/df4d95560e5f87cba473fe45a741acabb2fafa09c" target="_blank">View ↗</a></div></div></div>
+          <div class="cred-item"><div class="cred-num">/03</div><div><div class="cred-name">Azure AI Fundamentals</div><div class="cred-sub">900/1000 · <a class="cred-link" href="https://learn.microsoft.com/api/credentials/share/en-us/Thapanee-6263/2CF9D3F15A78B503?sharingId=5F155848CEC839BD" target="_blank">View ↗</a></div></div></div>
+          <div class="cred-item"><div class="cred-num">/04</div><div><div class="cred-name">IBM Data Science Certificate</div><div class="cred-sub">Dec 2022 · <a class="cred-link" href="https://www.coursera.org/account/accomplishments/specialization/certificate/VSBNWB9MKDJX" target="_blank">View ↗</a></div></div></div>
+        </div>
+        <div class="lang-row">
+          <div class="lang-item"><div class="lang-flag">🇹🇭</div><div class="lang-n">Thai</div><div class="lang-l">Native</div></div>
+          <div class="lang-item"><div class="lang-flag">🇬🇧</div><div class="lang-n">English</div><div class="lang-l">C1</div></div>
+          <div class="lang-item"><div class="lang-flag">🇯🇵</div><div class="lang-n">Japanese</div><div class="lang-l">B1</div></div>
+          <div class="lang-item"><div class="lang-flag">🇩🇪</div><div class="lang-n">German</div><div class="lang-l">B1</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SKILLS ══ -->
+<section id="skills" class="skills-section">
+  <div class="page-wrap">
+    <div class="section-top reveal">
+      <div class="section-top-left"><div class="st-label">What I Do</div><div class="st-heading"><em>Skills</em></div></div>
+    </div>
+    <div class="skill-grid reveal">
+      <div class="skill-card"><div class="sk-num">/01</div><div class="sk-title">Natural Language Processing</div><div class="sk-desc">Language Understanding, Sentiment Analysis, Keyword Extraction across multilingual datasets.</div></div>
+      <div class="skill-card"><div class="sk-num">/02</div><div class="sk-title">Machine Learning</div><div class="sk-desc">Regression, Classification. Data collection, wrangling, labelling to model training and evaluation.</div></div>
+      <div class="skill-card"><div class="sk-num">/03</div><div class="sk-title">Data Science</div><div class="sk-desc">Visualization, exploratory analysis. NumPy, Pandas, Matplotlib, Scikit-learn, SQL.</div></div>
+      <div class="skill-card"><div class="sk-num">/04</div><div class="sk-title">Python & NLP Libs</div><div class="sk-desc">SpaCy, NLTK, OpenAI API, Jupyter. Text processing and entity extraction pipelines.</div></div>
+      <div class="skill-card"><div class="sk-num">/05</div><div class="sk-title">Cloud & Tools</div><div class="sk-desc">Azure AI certified (900/1000). Jupyter Notebook, MS Office Suite.</div></div>
+      <div class="skill-card"><div class="sk-num">/06</div><div class="sk-title">AI Safety</div><div class="sk-desc">Responsible AI — safe, ethical systems aligned with human values.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROJECTS ══ -->
+<section id="projects" class="projects-section">
+  <div class="page-wrap">
+    <div class="section-top reveal">
+      <div class="section-top-left"><div class="st-label">Selected Work</div><div class="st-heading">Latest <em>Projects</em></div></div>
+      <div class="filter-row">
+        <button class="filter-btn active" onclick="filterP('all',this)">All</button>
+        <button class="filter-btn" onclick="filterP('nlp',this)">NLP / LLM</button>
+        <button class="filter-btn" onclick="filterP('ds',this)">Data Science</button>
+      </div>
+    </div>
+    <div class="proj-editorial reveal" id="projGrid">
+      <div class="proj-card" data-cat="nlp">
+        <div class="proj-thumb proj-thumb-color-1"><img src="images/[PNG] Opinion Analysis Project.png" alt="Housing Analysis" onerror="this.style.display='none'" /></div>
+        <div class="proj-body">
+          <div class="proj-cat">NLP</div>
+          <div class="proj-title">Housing Crisis Opinion Analysis</div>
+          <div class="proj-desc">Sentiment analysis of tweets about housing, extracting keywords and uncovering opinion patterns around the global shortage.</div>
+          <div class="proj-tags"><span>Sentiment</span><span>NLP</span><span>Python</span></div>
+          <a class="proj-read" href="https://drive.google.com/file/d/1MCDLeXAFRqh6uMPtjE5HIYBxbOlCQXI8/view?usp=sharing" target="_blank">Read More →</a>
+        </div>
+      </div>
+      <div class="proj-card" data-cat="nlp">
+        <div class="proj-thumb proj-thumb-color-2"></div>
+        <div class="proj-body">
+          <div class="proj-cat">LLM</div>
+          <div class="proj-title">Your LLM Project</div>
+          <div class="proj-desc">Brief description — problem, approach, and impact delivered.</div>
+          <div class="proj-tags"><span>LLM</span><span>Fine-tuning</span><span>RAG</span></div>
+          <a class="proj-read" href="#">Read More →</a>
+        </div>
+      </div>
+      <div class="proj-card" data-cat="ds">
+        <div class="proj-thumb proj-thumb-color-3"></div>
+        <div class="proj-body">
+          <div class="proj-cat">Data Science</div>
+          <div class="proj-title">Your DS Project</div>
+          <div class="proj-desc">Brief description — data analyzed, insights, and business value.</div>
+          <div class="proj-tags"><span>Pandas</span><span>Viz</span><span>ML</span></div>
+          <a class="proj-read" href="#">Read More →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ VENTURES ══ -->
+<section id="ventures" class="ventures-section">
+  <div class="page-wrap">
+    <div class="section-top reveal">
+      <div class="section-top-left"><div class="st-label">Building</div><div class="st-heading"><em>Ventures</em></div></div>
+    </div>
+    <div class="vent-grid reveal">
+      <div class="vent-card vent-1">
+        <div class="vent-emoji">🥤</div><div class="vent-name">Kup-Kup</div><div class="vent-sub">Sustainable Smart Beverages</div>
+        <div class="vent-desc">Smart vending machines dispensing customizable drinks into reusable cups — reducing waste while personalizing the experience.</div>
+        <div class="vent-tags"><span>IoT</span><span>Sustainability</span><span>Consumer Tech</span></div>
+      </div>
+      <div class="vent-card vent-2">
+        <div class="vent-emoji">🏠</div><div class="vent-name">LandB</div><div class="vent-sub">AI-Powered Rental Marketplace</div>
+        <div class="vent-desc">Intelligent marketplace connecting lenders and borrowers across any property type with AI-driven matching.</div>
+        <div class="vent-tags"><span>AI/ML</span><span>Marketplace</span><span>PropTech</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CV ══ -->
+<section id="cv" class="cv-section">
+  <div class="page-wrap">
+    <div class="section-top reveal">
+      <div class="section-top-left"><div class="st-label">My Journey</div><div class="st-heading">Experience & <em>Education</em></div></div>
+    </div>
+    <div class="cv-grid reveal">
+      <div><div class="cv-col-title">Professional Experience</div>
+        <div class="cv-item"><div class="cv-date">Present</div><div class="cv-role">Founder</div><div class="cv-place">Kup-Kup · LandB</div><div class="cv-desc-text">Technology, sustainability, community impact.</div></div>
+        <div class="cv-item"><div class="cv-date">3+ Years</div><div class="cv-role">NLP Data & ML Specialist</div><div class="cv-place">Multinational IT · Ireland</div><div class="cv-desc-text">NLP projects, linguistic data quality, ML model training.</div></div>
+      </div>
+      <div><div class="cv-col-title">Education</div>
+        <div class="cv-item"><div class="cv-date">2023</div><div class="cv-role">Diploma in ML & AI</div><div class="cv-place">City Colleges · Dublin</div><div class="cv-desc-text">Award of Distinction.</div></div>
+        <div class="cv-item"><div class="cv-date">Degree</div><div class="cv-role">Master's — Digital Innovation</div><div class="cv-place">University</div></div>
+        <div class="cv-item"><div class="cv-date">Degree</div><div class="cv-role">Bachelor's — Business Admin</div><div class="cv-place">University</div></div>
+      </div>
+    </div>
+    <div class="cv-dl reveal"><a href="https://drive.google.com/file/d/1iPIZWHcOEsrKkzA5OCjB3iHhlgJuhD2N/view?usp=sharing" target="_blank" class="btn btn-coral">↓ Download Full CV</a></div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<div id="contact" class="contact-card reveal">
+  <h2 class="contact-h">Let's <em>connect.</em></h2>
+  <p class="contact-sub">Collaborations, AI conversations, or new opportunities — I'd love to hear from you.</p>
+  <div class="contact-btns">
+    <a href="mailto:pun.thapanee@gmail.com" class="contact-btn">pun.thapanee@gmail.com</a>
+    <a href="https://linkedin.com/in/" class="contact-btn" target="_blank">LinkedIn</a>
+    <a href="https://github.com/" class="contact-btn" target="_blank">GitHub</a>
+  </div>
+</div>
+
+<!-- FLOATING TABS -->
+<div class="floating-tabs" id="floatingTabs">
+  <a href="#home" data-section="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="tab-label">Home</span></a>
+  <a href="#about" data-section="about"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span class="tab-label">About</span></a>
+  <a href="#skills" data-section="skills"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48 2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48 2.83-2.83"/></svg><span class="tab-label">Skills</span></a>
+  <a href="#projects" data-section="projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="tab-label">Projects</span></a>
+  <a href="#ventures" data-section="ventures"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg><span class="tab-label">Ventures</span></a>
+  <a href="#contact" data-section="contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span class="tab-label">Contact</span></a>
+</div>
+
+<footer>
+  <div class="ft-brand">thapanee</div>
+  <div class="ft-links"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#ventures">Ventures</a><a href="#contact">Contact</a></div>
+  <div class="ft-copy">&copy; 2026</div>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
+function closeMenu(){document.getElementById('mobileMenu').classList.remove('open')}
+const obs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');obs.unobserve(en.target)}})},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+function filterP(cat,btn){document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('[data-cat]').forEach(c=>{c.style.display=(cat==='all'||c.dataset.cat===cat)?'':'none'})}
+const ft=document.getElementById('floatingTabs'),sids=['home','about','skills','projects','ventures','contact'],tls=ft.querySelectorAll('a');
+function upd(){const hH=document.getElementById('home').offsetHeight;ft.classList.toggle('visible',window.scrollY>hH*0.4);let cur='home';sids.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<=window.innerHeight*0.4)cur=id});tls.forEach(l=>l.classList.toggle('active',l.dataset.section===cur))}
+window.addEventListener('scroll',upd,{passive:true});upd();
+tls.forEach(l=>l.addEventListener('click',e=>{e.preventDefault();document.getElementById(l.dataset.section)?.scrollIntoView({behavior:'smooth',block:'start'})}));
+</script>
+</body>
+</html>
