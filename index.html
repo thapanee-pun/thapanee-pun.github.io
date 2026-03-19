@@ -114,44 +114,61 @@ section { padding:80px 0; }
 
 /* ── ABOUT EDITORIAL ── */
 .about-section { background:var(--cream); }
-.about-grid {
-  display:grid; grid-template-columns:1fr;
-  gap:48px; align-items:start;
-  max-width:760px;
+ 
+.about-intro {
+  max-width:720px; margin:0 auto 40px;
 }
-.about-images {
-  display:grid; grid-template-columns:1fr 1fr;
-  grid-template-rows:1fr 1fr; gap:10px;
-  position:relative;
-}
-.about-img-block {
-  border-radius:8px; overflow:hidden; min-height:160px;
-}
-.about-img-1 { background:var(--lavender); grid-row:span 2; }
-.about-img-1 img { width:100%; height:100%; object-fit:cover; display:block; }
-.about-img-2 { background:var(--peach); }
-.about-img-3 { background:var(--mint-light); }
-
-.about-text-side {}
 .about-label { font-size:0.8rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--coral); margin-bottom:8px; }
 .about-heading { font-family:var(--serif); font-size:1.8rem; color:var(--text); margin-bottom:20px; line-height:1.2; }
 .about-heading em { color:var(--periwinkle); font-style:italic; }
-.about-text-side p { font-size:0.9rem; color:var(--text-mid); line-height:1.9; margin-bottom:14px; }
-
-/* ── CREDS ── */
-.creds-wrap { margin-top:32px; }
+.about-bio { font-size:0.9rem; color:var(--text-mid); line-height:1.9; margin-bottom:14px; }
+ 
+/* Credentials (original list style) */
+.creds-wrap { margin-top:32px; max-width:720px; margin-left:auto; margin-right:auto; }
 .cred-item { display:flex; gap:12px; padding:12px 0; border-bottom:1px solid var(--border); align-items:baseline; }
 .cred-num { font-family:var(--serif); font-size:0.95rem; color:var(--periwinkle); min-width:36px; }
 .cred-name { font-weight:600; font-size:1rem; color:var(--text); }
 .cred-sub { font-size:0.85rem; color:var(--text-light); }
 .cred-link { font-size:0.85rem; color:var(--coral); text-decoration:none; font-weight:600; }
 .cred-link:hover { text-decoration:underline; }
-
-.lang-row { display:flex; gap:28px; margin-top:24px; flex-wrap:wrap; }
+ 
+/* Languages (original row style) */
+.lang-row { display:flex; gap:28px; margin-top:24px; flex-wrap:wrap; max-width:720px; margin-left:auto; margin-right:auto; }
 .lang-item { text-align:center; }
 .lang-flag { font-size:1.8rem; margin-bottom:4px; }
 .lang-n { font-size:0.92rem; font-weight:600; color:var(--text); }
 .lang-l { font-size:0.78rem; color:var(--text-light); }
+ 
+/* CV subsection inside About */
+.about-subsection {
+  margin-top:56px; padding-top:40px;
+  border-top:1.5px solid var(--border);
+}
+.about-sub-title {
+  font-family:var(--serif); font-size:1.3rem;
+  color:var(--text); margin-bottom:24px;
+  display:flex; align-items:center; gap:12px;
+}
+.about-sub-title em { color:var(--periwinkle); font-style:italic; }
+.about-sub-icon {
+  width:36px; height:36px; border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1rem; flex-shrink:0;
+}
+ 
+/* Experience & Education */
+.cv-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; }
+.cv-col-title {
+  font-family:var(--serif); font-size:1.05rem; color:var(--text);
+  padding-bottom:10px; border-bottom:3px solid var(--periwinkle);
+  margin-bottom:24px;
+}
+.cv-item { margin-bottom:22px; }
+.cv-date { font-size:0.78rem; font-weight:600; color:var(--coral); }
+.cv-role { font-family:var(--serif); font-size:1rem; color:var(--text); margin:3px 0 2px; }
+.cv-place { font-size:0.85rem; color:var(--text-light); margin-bottom:4px; }
+.cv-desc-text { font-size:0.85rem; color:var(--text-mid); line-height:1.7; }
+.cv-dl { text-align:center; margin-top:36px; }
 
 /* ── SKILLS ── */
 .skills-section { background:var(--white); }
