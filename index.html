@@ -534,27 +534,6 @@ footer {
   </div>
 </section>
 
-<!-- ══ CV ══ -->
-<section id="cv" class="cv-section">
-  <div class="page-wrap">
-    <div class="section-top reveal">
-      <div class="section-top-left"><div class="st-label">My Journey</div><div class="st-heading">Experience & <em>Education</em></div></div>
-    </div>
-    <div class="cv-grid reveal">
-      <div><div class="cv-col-title">Professional Experience</div>
-        <div class="cv-item"><div class="cv-date">Present</div><div class="cv-role">Founder</div><div class="cv-place">Kup-Kup · LandB</div><div class="cv-desc-text">Technology, sustainability, community impact.</div></div>
-        <div class="cv-item"><div class="cv-date">3+ Years</div><div class="cv-role">NLP Data & ML Specialist</div><div class="cv-place">Multinational IT · Ireland</div><div class="cv-desc-text">NLP projects, linguistic data quality, ML model training.</div></div>
-      </div>
-      <div><div class="cv-col-title">Education</div>
-        <div class="cv-item"><div class="cv-date">Diploma</div><div class="cv-role">Diploma in ML & AI</div><div class="cv-place">City Colleges · Dublin</div><div class="cv-desc-text">Award of Distinction.</div></div>
-        <div class="cv-item"><div class="cv-date">Degree</div><div class="cv-role">Master's — Digital Innovation <span style="font-size:0.78rem;font-weight:400;color:var(--text-mid);">· Upper-second Class Honor.</span></div><div class="cv-place">UCD Michael Smurfit Graduate Business School · Dublin</div></div>
-        <div class="cv-item"><div class="cv-date">Degree</div><div class="cv-role">Bachelor's — Business Administration<span style="font-size:0.78rem;font-weight:400;color:var(--text-mid);">· Second Class Honor.</span></div><div class="cv-place">Mahidol University International College · Bangkok</div></div>
-      </div>
-    </div>
-    <div class="cv-dl reveal"><a href="https://drive.google.com/file/d/1iPIZWHcOEsrKkzA5OCjB3iHhlgJuhD2N/view?usp=sharing" target="_blank" class="btn btn-coral">↓ Download Full CV</a></div>
-  </div>
-</section>
-
 <!-- ══ CONTACT ══ -->
 <div id="contact" class="contact-card reveal">
   <h2 class="contact-h">Let's <em>connect.</em></h2>
@@ -573,7 +552,6 @@ footer {
   <a href="#skills" data-section="skills"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48 2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48 2.83-2.83"/></svg><span class="tab-label">Skills</span></a>
   <a href="#projects" data-section="projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span class="tab-label">Projects</span></a>
   <a href="#ventures" data-section="ventures"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg><span class="tab-label">Ventures</span></a>
-  <a href="#cv" data-section="cv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><span class="tab-label">Journey</span></a>
   <a href="#contact" data-section="contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span class="tab-label">Contact</span></a>
 </div>
 
@@ -589,7 +567,7 @@ function closeMenu(){document.getElementById('mobileMenu').classList.remove('ope
 const obs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');obs.unobserve(en.target)}})},{threshold:0.08});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 function filterP(cat,btn){document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('[data-cat]').forEach(c=>{c.style.display=(cat==='all'||c.dataset.cat===cat)?'':'none'})}
-const ft=document.getElementById('floatingTabs'),sids=['home','about','skills','projects','ventures','cv','contact'],tls=ft.querySelectorAll('a');
+const ft=document.getElementById('floatingTabs'),sids=['home','about','skills','projects','ventures','contact'],tls=ft.querySelectorAll('a');
 function upd(){const hH=document.getElementById('home').offsetHeight;ft.classList.toggle('visible',window.scrollY>hH*0.4);let cur='home';sids.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<=window.innerHeight*0.4)cur=id});tls.forEach(l=>l.classList.toggle('active',l.dataset.section===cur))}
 window.addEventListener('scroll',upd,{passive:true});upd();
 tls.forEach(l=>l.addEventListener('click',e=>{e.preventDefault();document.getElementById(l.dataset.section)?.scrollIntoView({behavior:'smooth',block:'start'})}));
