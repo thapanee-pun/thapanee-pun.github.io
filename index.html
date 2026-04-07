@@ -40,7 +40,8 @@
   --sans: 'DM Sans', -apple-system, sans-serif;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
-
+html, body { width:100%; max-width:100%; overflow-x:hidden; }
+  
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; scroll-padding-top:60px; }
 body { font-family:var(--sans); color:var(--text); background:var(--lavender-bg); font-size:15px; line-height:1.7; -webkit-font-smoothing:antialiased; }
@@ -293,7 +294,7 @@ section { padding:80px 0; }
 
 /* ── FOOTER ── */
 footer {
-  background:var(--blue-deep); padding:24px 40px;
+  background:var(--blue-deep); padding:24px 40px 24px 40px; margin:0; width:100%;
   display:flex; align-items:center; justify-content:space-between;
   flex-wrap:wrap; gap:12px;
 }
