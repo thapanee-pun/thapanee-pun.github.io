@@ -91,7 +91,7 @@ section { padding:80px 0; }
   color:var(--periwinkle); opacity:0.7;
   animation:bobArrow 2s ease-in-out infinite;
   padding-bottom:20px;
-  margin-top:-120px;
+  margin-top:-100px;
 }
 @keyframes bobArrow { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
 
@@ -246,7 +246,8 @@ section { padding:80px 0; }
 .vent-card:hover { transform:translateY(-4px); }
 .vent-1 { background:var(--lavender-light); }
 .vent-2 { background:var(--blue-deep); }
-.vent-emoji { font-size:2rem; margin-bottom:14px; line-height:0; }
+.vent-emoji { font-size:2rem; line-height:0; }
+.vent-emoji img { display:block; }
 .vent-name { font-family:var(--serif); font-size:1.4rem; margin-bottom:4px; }
 .vent-1 .vent-name { color:var(--text); }
 .vent-2 .vent-name { color:var(--white); }
@@ -525,12 +526,12 @@ footer {
     </div>
     <div class="vent-grid reveal">
       <div class="vent-card vent-1">
-        <div class="vent-emoji"><img src="images/kub-kub logo.png" alt="Kup-Kup" style="width:150px;height:150px;object-fit:contain;" /></div><div class="vent-sub">Sustainable Smart Beverages</div>
+        <div class="vent-emoji"><img src="images/kub-kub logo.png" alt="Kup-Kup" style="width:120px;height:auto;object-fit:contain;display:block;" /></div><div class="vent-sub">Sustainable Smart Beverages</div>
         <div class="vent-desc">Smart vending machines dispensing customizable drinks into reusable cups, reducing waste while personalizing the experience.</div>
         <div class="vent-tags"><span>IoT & AI</span><span>Sustainability</span><span>Consumer Tech</span></div>
       </div>
       <div class="vent-card vent-2">
-        <div class="vent-emoji"><img src="images/LandB-logos_transparent.png" alt="LandB" style="width:150px;height:150px;object-fit:contain;" /></div><div class="vent-sub">AI-Powered Rental Marketplace</div>
+        <div class="vent-emoji"><img src="images/LandB-logos_transparent.png" alt="LandB" style="width:120px;height:auto;object-fit:contain;display:block;" /></div><div class="vent-sub">AI-Powered Rental Marketplace</div>
         <div class="vent-desc">Intelligent rental marketplace connecting lenders and borrowers across any property type with AI-driven matching.</div>
         <div class="vent-tags"><span>AI/ML</span><span>Marketplace</span><span>PropTech</span></div>
       </div>
