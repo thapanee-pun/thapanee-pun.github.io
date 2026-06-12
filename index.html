@@ -80,14 +80,14 @@ section { padding:80px 0; }
   display:flex; align-items:center; justify-content:center;
 }
 .hero-photo-full {
-  width:280px; height:340px; margin:auto;
-  border-radius:45%; overflow:hidden;
+  width:300px; height:300px; margin:auto;
+  border-radius:50%; overflow:hidden;
   border:4px solid var(--white);
   box-shadow:0 12px 40px rgba(107,100,168,0.15);
 }
 }
 .hero-photo-full img {
-  width:100%; height:100%; max-height:400px; object-fit:cover; display:block;
+  width:100%; height:100%; object-fit:cover; object-position:center top; display:block;
 }
 .hero-scroll-arrow {
   text-align:center; width:100%;
@@ -384,12 +384,9 @@ footer {
 <section id="home" style="padding:0;">
   <div class="hero-grid">
     <div class="hero-left">
-    <div style="position:relative;width:320px;height:320px;margin:auto;">
-      <div style="position:absolute;inset:-8px;border-radius:50%;border:2px solid var(--lavender);"></div>
       <div class="hero-photo-full">
         <img src="images/IMG_6516.jpg" alt="Thapanee Punnavirat" />
       </div>
-    </div>
     </div>
     <div class="hero-right">
       <h1 class="hero-heading"><em>Thapanee</em> Punnavirat <em>(Elly)</em></h1>
