@@ -470,7 +470,7 @@ footer {
     </div>
     <div class="skill-grid reveal">
       <div class="skill-card"><div class="sk-num">/01</div><div class="sk-title">Natural Language Processing</div><div class="sk-desc">Language Understanding, Sentiment Analysis, Keyword Extraction across multilingual datasets.</div></div>
-      <div class="skill-card"><div class="sk-num">/02</div><div class="sk-title">Machine Learning</div><div class="sk-desc">Regression, Classification. Data collection, wrangling, labelling to model training and evaluation.</div></div>
+      <div class="skill-card"><div class="sk-num">/02</div><div class="sk-title">Machine Learning</div><div class="sk-desc">Regression, Classification. Data collection, wrangling, labeling to model training and evaluation.</div></div>
       <div class="skill-card"><div class="sk-num">/03</div><div class="sk-title">Data Science</div><div class="sk-desc">Visualization, exploratory analysis. NumPy, Pandas, Matplotlib, Scikit-learn, SQL.</div></div>
       <div class="skill-card"><div class="sk-num">/04</div><div class="sk-title">Python & NLP Libs</div><div class="sk-desc">SpaCy, NLTK . Text processing.</div></div>
       <div class="skill-card"><div class="sk-num">/05</div><div class="sk-title">Cloud & Tools</div><div class="sk-desc">Azure AI certified (900/1000). Jupyter Notebook, MS Office Suite.</div></div>
@@ -490,6 +490,13 @@ footer {
         <button class="filter-btn" onclick="filterP('ds',this)">Data Science</button>
       </div>
     </div>
+    
+    <div class="filter-row reveal">
+      <button class="filter-btn active" onclick="filterP('all',this)">All</button>
+      <button class="filter-btn" onclick="filterP('nlp',this)">NLP</button>
+      <button class="filter-btn" onclick="filterP('ds',this)">Data Science</button>
+    </div>
+    
     <div class="proj-editorial reveal" id="projGrid">
       <div class="proj-card" data-cat="nlp">
         <div class="proj-thumb proj-thumb-color-1"><img src="images/[PNG] Opinion Analysis Project.png" alt="Housing Analysis" onerror="this.style.display='none'" /></div>
@@ -500,6 +507,19 @@ footer {
           <div class="proj-tags"><span>Sentiment</span><span>NLP</span><span>Python</span></div>
           <a class="proj-read" href="https://github.com/thapanee-pun/NLP-housing-tweet-analysis" target="_blank" rel="noopener noreferrer">Read More →</a>
         </div>
+      </div>
+
+       <div class="proj-card" data-cat="ds">
+        <div class="proj-thumb proj-thumb-color-3"></div>
+        <div class="proj-body">
+          <div class="proj-cat">Data Science · 2024</div>
+          <div class="proj-title">Notebook Price Prediction</div>
+          <div class="proj-desc">Predicting laptop prices from hardware specifications using regression models. Capstone project for VISTEC–DEPA AI & Data Science Bootcamp.</div>
+          <div class="proj-tags"><span>Pandas</span><span>Scikit-learn</span><span>EDA</span><span>Regression</span></div>
+          <a class="proj-read" href="https://github.com/thapanee-pun/data-science-2024-capstone" target="_blank">View on GitHub →</a>
+        </div>
+      </div>
+      
       </div>
       
     </div>
